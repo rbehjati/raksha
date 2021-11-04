@@ -108,6 +108,7 @@ rust_library(
         "//rust/tools/authorization-logic/cargo:serde",
         "//rust/tools/authorization-logic/cargo:tink_core",
         "//rust/tools/authorization-logic/cargo:tink_signature",
+        "//rust/tools/authorization-logic/cargo:structopt",
     ],
     crate_type = "staticlib",
 )
@@ -129,5 +130,6 @@ rust_binary(
         "//rust/tools/authorization-logic/cargo:serde",
         "//rust/tools/authorization-logic/cargo:tink_core",
         "//rust/tools/authorization-logic/cargo:tink_signature",
+        "//rust/tools/authorization-logic/cargo:structopt",
     ],
 )
