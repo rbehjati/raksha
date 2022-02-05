@@ -93,6 +93,23 @@ cc_test(
 )
 
 cc_library(
+    name = "ssa_names",
+    hdrs = ["ssa_names.h"],
+    deps = [
+        "@absl//absl/container:flat_hash_map",
+    ],
+)
+
+cc_test(
+    name = "ssa_names_test",
+    srcs = ["ssa_names_test.cc"],
+    deps = [
+        ":ssa_names",
+        "//src/common/testing:gtest",
+    ],
+)
+
+cc_library(
     name = "ir",
     srcs = [
         "access_path_root.cc",
