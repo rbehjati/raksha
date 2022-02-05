@@ -93,6 +93,18 @@ cc_test(
 )
 
 cc_library(
+    name = "module",
+    srcs = ["operation.cc"],
+    hdrs = ["module.h"],
+    deps = [
+        ":attribute",
+        ":data_decl",
+        ":operator",
+        ":value",
+    ],
+)
+
+cc_library(
     name = "ssa_names",
     hdrs = ["ssa_names.h"],
     deps = [
@@ -124,6 +136,27 @@ cc_test(
     deps = [
         ":storage",
         "//src/common/testing:gtest",
+    ],
+)
+
+cc_library(
+    name = "value",
+    hdrs = ["value.h"],
+    deps = [
+        ":ssa_names",
+        ":storage",
+        "//src/ir/types",
+    ],
+)
+
+cc_test(
+    name = "value_test",
+    srcs = ["value_test.cc"],
+    deps = [
+        ":module",
+        ":value",
+        "//src/common/testing:gtest",
+        "//src/ir/types",
     ],
 )
 
