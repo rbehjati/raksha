@@ -37,9 +37,9 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
 // The output is this authorization logic code.
 
 "Verifier_OakFunctionsLoader" says {
-    "EndorsementFile_OakFunctionsLoader" canSay
-        expected_hash("ProvenanceFile_OakFunctionsLoader", some_hash) :-
-            isSymbol(some_hash).
+    //"EndorsementFile_OakFunctionsLoader" canSay
+    //    expected_hash("ProvenanceFile_OakFunctionsLoader", some_hash) :-
+    //        isSymbol(some_hash).
     
     "EndorsementFile_OakFunctionsLoader" canSay
         expected_hash("Binary_OakFunctionsLoader", some_hash) :-
@@ -60,14 +60,14 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
         //    hasProvenance("ProvenanceFile_OakFunctionsLoader"),
         "EndorsementFile_OakFunctionsLoader" canActAs "ValidRekorEntry",
         expected_hash("Binary_OakFunctionsLoader", binary_hash),
-        measured_hash("Binary_OakFunctionsLoader", binary_hash),
-        expected_hash("ProvenanceFile_OakFunctionsLoader", provenance_hash),
-        measured_hash("ProvenanceFile_OakFunctionsLoader", provenance_hash).
+        measured_hash("Binary_OakFunctionsLoader", binary_hash).
+        //expected_hash("ProvenanceFile_OakFunctionsLoader", provenance_hash),
+        //measured_hash("ProvenanceFile_OakFunctionsLoader", provenance_hash).
 
     // This we hopefully can get rid of for the real version:
-    isSymbol("6de656f11599c11548519af6b7385504ed845a4ff6600745cb3d9e174b8956af").
+    //isSymbol("6de656f11599c11548519af6b7385504ed845a4ff6600745cb3d9e174b8956af").
     isSymbol("cb255dbbea86b128379995ff7dc805fd026e2d21c997a8df688ba9e5cb98e1c1").
-    isSymbol("ProvenanceFile_OakFunctionsLoader").
+    //isSymbol("ProvenanceFile_OakFunctionsLoader").
     isSymbol("Binary_OakFunctionsLoader").
     isSymbol("EndorsementFile_OakFunctionsLoader").
 }
@@ -105,11 +105,11 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
 
 // Endorsement File Wrapper Output
 "EndorsementFile_OakFunctionsLoader" says {
-    expected_hash("ProvenanceFile_OakFunctionsLoader",
-        "6de656f11599c11548519af6b7385504ed845a4ff6600745cb3d9e174b8956af")
-           :- RealTimeIs(real_time),        
-              greater_than(real_time, "1634843697"),  // Release time
-              less_than(real_time, "1637522097").     // expiry time
+    //expected_hash("ProvenanceFile_OakFunctionsLoader",
+    //    "6de656f11599c11548519af6b7385504ed845a4ff6600745cb3d9e174b8956af")
+    //       :- RealTimeIs(real_time),        
+    //          greater_than(real_time, "1634843697"),  // Release time
+    //          less_than(real_time, "1637522097").     // expiry time
 
     expected_hash("Binary_OakFunctionsLoader",
         "cb255dbbea86b128379995ff7dc805fd026e2d21c997a8df688ba9e5cb98e1c1")
@@ -210,10 +210,10 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
 //    file name --> "provenance_file.toml"
 //    principal name --> "ProvenanceFile_OakFunctionsLoader"
 // The output looks like:
-"Sha256Wrapper" says {
-    measured_hash("ProvenanceFile_OakFunctionsLoader",
-      "6de656f11599c11548519af6b7385504ed845a4ff6600745cb3d9e174b8956af").
-}
+//"Sha256Wrapper" says {
+//    measured_hash("ProvenanceFile_OakFunctionsLoader",
+//      "6de656f11599c11548519af6b7385504ed845a4ff6600745cb3d9e174b8956af").
+//}
 
 // For the binary, the inputs are:
 //    file name --> "oak_functions_loader.exe" (I don't have an example binary)
