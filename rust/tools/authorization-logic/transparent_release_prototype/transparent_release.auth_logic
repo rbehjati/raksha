@@ -45,9 +45,9 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
         expected_hash("Binary_OakFunctionsLoader", some_hash) :-
             isSymbol(some_hash).
 
-    "ProvenanceFileBuilder" canSay 
-        "Binary_OakFunctionsLoader" hasProvenance(some_provenance_file) :-
-            isSymbol(some_provenance_file).
+    //"ProvenanceFileBuilder" canSay 
+    //    "Binary_OakFunctionsLoader" hasProvenance(some_provenance_file) :-
+    //        isSymbol(some_provenance_file).
 
     "Sha256Wrapper" canSay measured_hash(some_object, some_hash) :-
         isSymbol(some_object), isSymbol(some_hash).
@@ -56,8 +56,8 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
       :- isSymbol(some_object).
 
     "Binary_OakFunctionsLoader" canActAs "OakFunctionsLoader" :-
-        "Binary_OakFunctionsLoader"
-            hasProvenance("ProvenanceFile_OakFunctionsLoader"),
+        // "Binary_OakFunctionsLoader"
+        //    hasProvenance("ProvenanceFile_OakFunctionsLoader"),
         "EndorsementFile_OakFunctionsLoader" canActAs "ValidRekorEntry",
         expected_hash("Binary_OakFunctionsLoader", binary_hash),
         measured_hash("Binary_OakFunctionsLoader", binary_hash),
@@ -134,7 +134,7 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
     // principal.
     // TODO maybe it makes more sense if the thing that builds binary
     // files emits "Binary_OakFunctionsLoader" hasProvenance(...)
-    "OakFunctionsLoader" hasProvenance("ProvenanceFile_OakFunctionsLoader").
+    // "OakFunctionsLoader" hasProvenance("ProvenanceFile_OakFunctionsLoader").
 
     // The endorsement file trusts the unix epoch time wrapper
     // to give the real time (because the endorsement file relies on this
@@ -174,10 +174,10 @@ top_level_test = query "Verifier_OakFunctionsLoader" says
 // - provenance file: "provenance_file.toml"
 // - principal name for application: "OakFunctionsLoader"
 
-"ProvenanceFileBuilder" says {
-    "Binary_OakFunctionsLoader"
-        hasProvenance("ProvenanceFile_OakFunctionsLoader").
-}
+//"ProvenanceFileBuilder" says {
+//    "Binary_OakFunctionsLoader"
+//        hasProvenance("ProvenanceFile_OakFunctionsLoader").
+//}
 
 //-----------------------------------------------------------------------------
 // Hash Check Wrapper (Checks hashes on files)
